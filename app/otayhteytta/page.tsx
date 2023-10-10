@@ -5,7 +5,7 @@ import avatar from '../../public/avatar.svg'
 
 export default function OtaYhteytta() {
     return (
-      <main className="flex min-h-screen flex-col items-center justify-between">
+      <main className="flex flex-col items-center justify-between">
         <div className='w-full px-20 py-60 relative flex flex-col justify-center items-center'>
             <Image src={tausta} alt='Työkaluja' layout='fill' objectFit='cover' objectPosition='center' />
             <div className='relative z-10'>

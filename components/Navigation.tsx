@@ -1,11 +1,11 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-import logo from '../public/next.svg'
+import logo from '../public/logoE1K.png'
 
 export default function Navigation() {
   return (
-    <div className='bg-white h-20 w-full flex justify-center items-center'>
+    <div className='bg-white px-5 h-20 w-full flex justify-center items-center'>
         <div className='w-full max-w-[1080px] text-black flex flex-row justify-between items-center'>
             <Link href="/">
                 <Image src={logo} width={80} alt="vercel logo" />
