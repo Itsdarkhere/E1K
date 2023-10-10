@@ -10,7 +10,7 @@ export default function Navigation() {
             <Link href="/">
                 <Image src={logo} width={80} alt="vercel logo" />
             </Link>
-            <div className='flex flex-row gap-6 text-gray-600 text-sm'>
+            <div className='flex flex-none flex-row gap-6 text-gray-600 text-sm'>
                 <Link href={"/"}>Etusivu</Link>
                 <Link href={"/galleria"}>Galleria</Link>
                 <Link href={"/otayhteytta"}>Ota yhteyttä</Link>

@@ -1,6 +1,4 @@
 import paku from '../public/Paku.jpg'
-import lumenajo from '../public/lumenajo.jpeg'
-import tausta from '../public/E1Ktausta.png'
 import Image from 'next/image'
 
 export default function Home() {
@@ -14,7 +12,7 @@ export default function Home() {
         {/* <h6 className=' relative z-10 text-2xl'>Työllistämme ammattitaitoisia rakennushenkilöitä</h6> */}
       </div>
       <div className="w-full px-5 sm:px-20 py-10 md:py-48 relative" style={{filter: 'saturate(0%) brightness(94%) contrast(120%)', backfaceVisibility: 'hidden'}}>
-        <Image src={paku} alt='E1K Pakettiauto' layout='fill' objectFit='cover' objectPosition='center' />
+        <Image src={paku} alt='E1K Pakettiauto' fill={true} style={{ objectFit: 'cover'}} />
         <div className='flex flex-col lg:flex-row gap-5 relative z-10 py-10 space-y-6 lg:space-y-0'>
 
           <div className='flex flex-col p-6 rounded-md bg-[rgba(88,56,40,0.6)] backdrop-blur-md space-y-3'>
