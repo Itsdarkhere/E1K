@@ -2,6 +2,9 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import logo from '../public/logoE1K.png'
+import hamburger from '../public/hamburger.svg'
+import { Menu } from '@headlessui/react'
+import BurgerMenu from './BurgerMenu'
 
 export default function Navigation() {
   return (
@@ -10,11 +13,12 @@ export default function Navigation() {
             <Link href="/">
                 <Image src={logo} width={80} alt="vercel logo" />
             </Link>
-            <div className='flex flex-none flex-row gap-6 text-gray-600 text-sm'>
+            <div className='flex-none hidden sm:flex flex-row gap-6 text-gray-600 text-sm'>
                 <Link href={"/"}>Etusivu</Link>
                 <Link href={"/galleria"}>Galleria</Link>
                 <Link href={"/otayhteytta"}>Ota yhteyttä</Link>
             </div>
+            <BurgerMenu />
         </div>
     </div>
   )
