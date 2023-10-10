@@ -13,7 +13,7 @@ export default function Home() {
         <h4 className=' relative z-10 text-lg md:text-2xl pb-10 max-w-[850px]'>Urakoitsija uusimaalla rakennusliikkeille, yrityksille ja yksityisille. Urakat valmiiksi tehokkaasti, nopealla aikataululla</h4>
         {/* <h6 className=' relative z-10 text-2xl'>Työllistämme ammattitaitoisia rakennushenkilöitä</h6> */}
       </div>
-      <div className="w-full px-5 sm:px-20 py-48 relative" style={{filter: 'saturate(0%) brightness(94%) contrast(120%)', backfaceVisibility: 'hidden'}}>
+      <div className="w-full px-5 sm:px-20 py-10 md:py-48 relative" style={{filter: 'saturate(0%) brightness(94%) contrast(120%)', backfaceVisibility: 'hidden'}}>
         <Image src={paku} alt='E1K Pakettiauto' layout='fill' objectFit='cover' objectPosition='center' />
         <div className='flex flex-col lg:flex-row gap-5 relative z-10 py-10 space-y-6 lg:space-y-0'>
 
