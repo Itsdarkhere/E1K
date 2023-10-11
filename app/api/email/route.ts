@@ -1,3 +1,5 @@
+import { NextResponse } from "next/server"
+
 const sgMail = require('@sendgrid/mail')
 sgMail.setApiKey(process.env.SENDGRID_API_KEY)
 
@@ -5,7 +7,7 @@ export async function POST(req: Request) {
     const { name, email, message } = await req.json()
 
     if (!name || !email || !message) {
-        return Response.json({error: 'Fields not filled in the form...'})
+        return NextResponse.json({ error: 'Fields not filled in the form...' }, { status: 400 })
     }
 
     const msg = {
@@ -18,10 +20,10 @@ export async function POST(req: Request) {
     return sgMail
         .send(msg)
         .then(() => {
-            return Response.json({message: 'All good, email sent'})
+            return NextResponse.json({message: 'All good, email sent'}, { status: 200 })
         })
         .catch((error: any) => {
-            return Response.json({error: error})
+            return NextResponse.json({error: error}, { status: 500 })
         })
 
 }
