@@ -8,6 +8,8 @@ export default function Gallery() {
     const [currentPage, setCurrentPage] = useState(1);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedImageIndex, setSelectedImageIndex] = useState(-1);
+    const [isLoading, setIsLoading] = useState(false);
+    const [imageLoading, setImageLoading] = useState(true);
 
     // other component logic...
 
@@ -22,10 +24,12 @@ export default function Gallery() {
     };
 
     const goToNextImage = () => {
+        setIsLoading(true);
         setSelectedImageIndex((prevIndex: number) => (prevIndex + 1) % currentImages.length);
     };
 
     const goToPreviousImage = () => {
+        setIsLoading(true);
         setSelectedImageIndex(
         (prevIndex) => (prevIndex + currentImages.length - 1) % currentImages.length
         );
@@ -53,8 +57,6 @@ export default function Gallery() {
         return false;
     };
 
-    const [imageLoading, setImageLoading] = useState(true);
-
     useEffect(() => {
         setImageLoading(true);
         const timer = setTimeout(() => {
@@ -73,12 +75,18 @@ export default function Gallery() {
         {isModalOpen && (
             <div className="fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center z-50" onClick={closeModal}>
                 <div style={{height: dimensions.height, width: dimensions.width}} className="relative p-5 max-w-[90vw] max-h-[90vh] flex justify-center items-center">
+                    {isLoading && <div className="absolute inset-0 flex justify-center items-center">
+                        <div className="spinner"></div> {/* This is your loading spinner */}
+                    </div>}
                     <Image
                         src={`/${currentImages[selectedImageIndex]}.jpg`}
                         alt={`Gallery image ${currentImages[selectedImageIndex]}`}
                         fill={true} style={{ objectFit: 'contain'}}
                         sizes="(max-width: 768px)"
-                        onLoadingComplete={({ naturalWidth, naturalHeight }) => setDimension({ height: naturalHeight, width: naturalWidth })}
+                        onLoadingComplete={({ naturalWidth, naturalHeight }) => {
+                            setDimension({ height: naturalHeight, width: naturalWidth })
+                            setIsLoading(false);
+                        }}
                         className=" aspect-auto"
                         priority
                     />
