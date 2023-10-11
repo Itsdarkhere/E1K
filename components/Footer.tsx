@@ -1,5 +1,6 @@
+'use client'
 import Image from 'next/image'
-import React from 'react'
+import React, { ChangeEvent, useState } from 'react'
 import emil from '../public/emil1.jpeg'
 import mail from '../public/mail.svg'
 import phone from '../public/phone.svg'
@@ -7,6 +8,37 @@ import location from '../public/location.svg'
 import luotettava from '../public/LUOTETTAVA.png'
 
 export default function Footer() {
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [message, setMessage] = useState('');
+
+    const handleSubmit = async (event: ChangeEvent<HTMLFormElement>) => {
+        event.preventDefault()
+
+        const payload = {
+            name,
+            email,
+            message,
+        };
+
+        const response = await fetch('/api/email', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(payload),
+        }).then((res) => res.json())
+
+        console.log(response);
+    }
+
+    const handleInputChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        const { name, value } = event.target;
+        if (name === 'name') setName(value);
+        else if (name === 'email') setEmail(value);
+        else if (name === 'viesti') setMessage(value);
+    };
+
   return (
     <div className='flex flex-col'>
         <div className='flex flex-col-reverse lg:flex-row'>
@@ -32,7 +64,7 @@ export default function Footer() {
                     <Image src={luotettava} alt="Luotettava kumppani todistus" />
                 </div>
             </div>
-            <form className='w-full lg:w-1/2 py-20 px-5 sm:px-20 bg-bg_tertiary'>
+            <form onSubmit={handleSubmit} className='w-full lg:w-1/2 py-20 px-5 sm:px-20 bg-bg_tertiary'>
                 <h4 className=' text-4xl mb-6 font-semibold text-text_primary'>Ota yhteyttä</h4>
                 <div className="flex flex-row gap-8 w-full py-5 sm:pr-40">
                     <div className="flex flex-col w-full gap-[6px]">
@@ -46,21 +78,27 @@ export default function Footer() {
                             type="text"
                             name="name"
                             id="name"
+                            required
+                            value={name}
+                            onChange={handleInputChange}
                             autoComplete="name"
                             className="block w-full px-2 border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:shadow-brand_ring_shadow focus:ring-border_brand sm:text-sm sm:leading-6"
                         />
                     </div>
                     <div className="flex flex-col w-full gap-[6px] text-text_tertiary">
                         <label
-                            htmlFor="Sähköposti"
+                            htmlFor="email"
                             className="text-text_secondary text-sm font-semibold"
                         >
                             Sähköposti
                         </label>
                         <input
-                            type="text"
-                            name="Sähköposti"
-                            id="Sähköposti"
+                            type="email"
+                            required
+                            name="email"
+                            id="email"
+                            value={email}
+                            onChange={handleInputChange}
                             autoComplete="email"
                             className="block w-full px-2 border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:shadow-brand_ring_shadow focus:ring-border_brand sm:text-sm sm:leading-6"
                         />
@@ -76,8 +114,11 @@ export default function Footer() {
                     <div className="mt-1">
                         <textarea
                         id="viesti"
+                        required
                         name="viesti"
                         rows={3}
+                        value={message}
+                        onChange={handleInputChange}
                         className="block w-full px-2 min-h-[150px] border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                         />
                     </div>
