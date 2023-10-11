@@ -42,7 +42,7 @@ const config: Config = {
         bg_success_secondary: '#DCFAE6',
         bg_success_solid: '#079455',
         button_secondary_fg: '#344054',
-        text_brand_primary: '#42307D',
+        text_brand_primary: '#e09900',
         text_brand_secondary: '#6941C6',
         text_brand_tertiary: '#7F56D9',
         text_primary: '#101828',
