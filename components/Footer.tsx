@@ -66,7 +66,7 @@ export default function Footer() {
             </div>
             <form onSubmit={handleSubmit} className='w-full lg:w-1/2 py-20 px-5 sm:px-20 bg-white'>
                 <h4 className=' text-4xl mb-6 font-semibold text-text_primary'>Ota yhteyttä</h4>
-                <div className="flex flex-row gap-8 w-full py-5 max-w-[600px]">
+                <div className="flex flex-row gap-6 w-full py-5 max-w-[600px]">
                     <div className="flex flex-col w-full gap-[6px]">
                         <label
                             htmlFor="name"
@@ -126,7 +126,7 @@ export default function Footer() {
                         />
                     </div>
                 </div>
-                <button type='submit' className=' bg-bg_brand_solid text-white w-full max-w-[600px] px-5 mt-8 py-3 flex flex-row items-center justify-center gap-2 border border_border_primary shadow-md'>
+                <button type='submit' className=' bg-bg_brand_solid text-white w-full max-w-[600px] px-5 mt-8 py-3 flex flex-row items-center justify-center border border_border_primary shadow-md'>
                     LÄHETÄ
                 </button>
             </form>
