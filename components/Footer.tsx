@@ -126,7 +126,7 @@ export default function Footer() {
                         />
                     </div>
                 </div>
-                <button type='submit' className=' bg-bg_brand_solid text-white w-full max-w-[600px] px-5 mt-8 py-3 flex flex-row items-center justify-center gap-2 bg-transparent border border_border_primary shadow-md'>
+                <button type='submit' className=' bg-bg_brand_solid text-white w-full max-w-[600px] px-5 mt-8 py-3 flex flex-row items-center justify-center gap-2 border border_border_primary shadow-md'>
                     LÄHETÄ
                 </button>
             </form>
