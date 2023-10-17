@@ -5,6 +5,7 @@ import { Pagination } from 'swiper/modules';
 import Image from 'next/image';
 import 'swiper/css';
 import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 export default function ImagePopup(
     { popupOpen, setPopupOpen, pictures, index }:
