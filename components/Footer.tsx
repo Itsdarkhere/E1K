@@ -83,7 +83,7 @@ export default function Footer() {
                             onChange={handleInputChange}
                             placeholder='Nimi'
                             autoComplete="name"
-                            className="block w-full px-2 border-0 py-2.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:shadow-brand_ring_shadow focus:ring-border_brand sm:text-sm sm:leading-6"
+                            className="block w-full px-2 border-0 py-2.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-bg_brand_solid sm:text-sm sm:leading-6"
                         />
                     </div>
                     <div className="flex flex-col w-full gap-[6px] text-text_tertiary">
@@ -102,7 +102,7 @@ export default function Footer() {
                             onChange={handleInputChange}
                             placeholder='Sähköposti'
                             autoComplete="email"
-                            className="block w-full px-2 border-0 py-2.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:shadow-brand_ring_shadow focus:ring-border_brand sm:text-sm sm:leading-6"
+                            className="block w-full px-2 border-0 py-2.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-bg_brand_solid sm:text-sm sm:leading-6"
                         />
                     </div>
                 </div>
@@ -122,7 +122,7 @@ export default function Footer() {
                         value={message}
                         placeholder='Viesti'
                         onChange={handleInputChange}
-                        className="block w-full px-2 min-h-[150px] border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                        className="block w-full px-2 min-h-[150px] border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:outline-bg_brand_solid sm:text-sm sm:leading-6"
                         />
                     </div>
                 </div>

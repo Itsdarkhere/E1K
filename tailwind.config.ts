@@ -29,7 +29,7 @@ const config: Config = {
         bg_overlay: '#0C111D',
         bg_brand_primary: '#F9F5FF',
         bg_brand_secondary: '#F4EBFF',
-        bg_brand_solid: '#7F56D9',
+        bg_brand_solid: '#E09900',
         bg_brand_solid_hover: '#6941C6',
         bg_brand_section: '#53389E',
         bg_error_primary: '#FEF3F2',
