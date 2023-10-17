@@ -25,11 +25,3 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
-
-.swiper-pagination-bullet-active {
-  background: #E09900 !important;
-}
-.swiper-lazy-preloader {
-  color: #E09900 !important;
-  background: #E09900 !important;
-}

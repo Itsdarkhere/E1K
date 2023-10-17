@@ -31,7 +31,7 @@ export default function ImagePopup(
                   className={`flex justify-center items-center swiper-slide swiper-lazy`}
                   key={i}
                 >
-                  <div className="swiper-lazy-preloader"></div>
+                  <div className="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
                   <Image loading='lazy' fill className={` pointer-events-auto cursor-pointer object-contain swiper-lazy`} src={`/${src}.jpg`} alt='project' />
                 </SwiperSlide>
               ))}
