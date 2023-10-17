@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import tausta from '../../public/tausta2.jpg'
 import Image from 'next/image'
 import avatar from '../../public/avatar.svg'

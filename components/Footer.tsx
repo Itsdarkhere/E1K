@@ -42,7 +42,7 @@ export default function Footer() {
   return (
     <div className='flex flex-col'>
         <div className='flex flex-col-reverse lg:flex-row'>
-            <div className='w-full lg:w-1/2 bg-white flex flex-col sm:flex-row py-20 px-5 sm:px-20'>
+            <div className='w-full lg:w-1/2 bg-bg_tertiary flex flex-col sm:flex-row py-20 px-5 sm:px-20'>
                 <div className='flex flex-col justify-start w-full sm:w-1/2'>
                     <Image className='max-w-[320px] w-full' src={emil} alt="Emil Kortelainen" />
                     <h6 className=' text-text_primary text-lg pt-3 pb-1'>Eemil Kortelainen</h6>
@@ -64,13 +64,13 @@ export default function Footer() {
                     <Image src={luotettava} alt="Luotettava kumppani todistus" />
                 </div>
             </div>
-            <form onSubmit={handleSubmit} className='w-full lg:w-1/2 py-20 px-5 sm:px-20 bg-bg_tertiary'>
+            <form onSubmit={handleSubmit} className='w-full lg:w-1/2 py-20 px-5 sm:px-20 bg-white'>
                 <h4 className=' text-4xl mb-6 font-semibold text-text_primary'>Ota yhteyttä</h4>
                 <div className="flex flex-row gap-8 w-full py-5 max-w-[600px]">
                     <div className="flex flex-col w-full gap-[6px]">
                         <label
                             htmlFor="name"
-                            className="text-text_secondary text-sm font-semibold"
+                            className="text-text_secondary text-sm font-medium"
                         >
                             Nimi
                         </label>
@@ -81,14 +81,15 @@ export default function Footer() {
                             required
                             value={name}
                             onChange={handleInputChange}
+                            placeholder='Nimi'
                             autoComplete="name"
-                            className="block w-full px-2 border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:shadow-brand_ring_shadow focus:ring-border_brand sm:text-sm sm:leading-6"
+                            className="block w-full px-2 border-0 py-2.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:shadow-brand_ring_shadow focus:ring-border_brand sm:text-sm sm:leading-6"
                         />
                     </div>
                     <div className="flex flex-col w-full gap-[6px] text-text_tertiary">
                         <label
                             htmlFor="email"
-                            className="text-text_secondary text-sm font-semibold"
+                            className="text-text_secondary text-sm font-medium"
                         >
                             Sähköposti
                         </label>
@@ -99,15 +100,16 @@ export default function Footer() {
                             id="email"
                             value={email}
                             onChange={handleInputChange}
+                            placeholder='Sähköposti'
                             autoComplete="email"
-                            className="block w-full px-2 border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:shadow-brand_ring_shadow focus:ring-border_brand sm:text-sm sm:leading-6"
+                            className="block w-full px-2 border-0 py-2.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:shadow-brand_ring_shadow focus:ring-border_brand sm:text-sm sm:leading-6"
                         />
                     </div>
                 </div>
                 <div className=" col-span-full  max-w-[600px]">
                     <label
                         htmlFor="viesti"
-                        className="text-text_secondary text-sm font-semibold"
+                        className="text-text_secondary font-medium text-sm"
                     >
                         Viesti
                     </label>
@@ -118,12 +120,13 @@ export default function Footer() {
                         name="viesti"
                         rows={3}
                         value={message}
+                        placeholder='Viesti'
                         onChange={handleInputChange}
                         className="block w-full px-2 min-h-[150px] border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                         />
                     </div>
                 </div>
-                <button type='submit' className=' bg-white px-5 mt-5 py-3 flex flex-row items-center justify-center gap-2 bg-transparent border border_border_primary shadow-md text-text_secondary hover:bg-bg_primary_hover hover:text_text_secondary_hover'>
+                <button type='submit' className=' bg-bg_brand_solid text-white w-full max-w-[600px] px-5 mt-8 py-3 flex flex-row items-center justify-center gap-2 bg-transparent border border_border_primary shadow-md'>
                     LÄHETÄ
                 </button>
             </form>
