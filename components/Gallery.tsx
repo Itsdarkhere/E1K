@@ -2,11 +2,12 @@
 import { useEffect, useState } from "react"
 import Image from "next/image"
 import arrow from '../public/arrow.svg'
+import ImagePopup from "./ImagePopup";
 
 export default function Gallery() {
     // State
     const [currentPage, setCurrentPage] = useState(1);
-    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [popupOpen, setPopupOpen] = useState(false);
     const [selectedImageIndex, setSelectedImageIndex] = useState(-1);
     const [isLoading, setIsLoading] = useState(false);
     const [imageLoading, setImageLoading] = useState(true);
@@ -15,11 +16,11 @@ export default function Gallery() {
 
     const openModal = (index: number) => {
         setSelectedImageIndex(index);
-        setIsModalOpen(true);
+        setPopupOpen(true);
     };
 
     const closeModal = () => {
-        setIsModalOpen(false);
+        setPopupOpen(false);
         setSelectedImageIndex(-1);
     };
 
@@ -68,49 +69,10 @@ export default function Gallery() {
     const startIndex = (currentPage - 1) * IMAGES_PER_PAGE;
     const endIndex = startIndex + IMAGES_PER_PAGE;
     const currentImages = imageNames.slice(startIndex, endIndex);
-    const [dimensions, setDimension] = useState({ height: 100, width: 100})
 
   return (
     <div className="w-full px-5 sm:px-20 bg-white flex flex-col justify-center items-center  py-5 sm:py-44">
-        {isModalOpen && (
-            <div className="fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center z-50" onClick={closeModal}>
-                <div style={{height: dimensions.height, width: dimensions.width}} className="relative p-5 max-w-[90vw] max-h-[90vh] flex justify-center items-center">
-                    {isLoading && <div className="absolute inset-0 flex justify-center items-center">
-                        <div className="spinner"></div> {/* This is your loading spinner */}
-                    </div>}
-                    <Image
-                        src={`/${currentImages[selectedImageIndex]}.jpg`}
-                        alt={`Gallery image ${currentImages[selectedImageIndex]}`}
-                        fill={true} style={{ objectFit: 'contain'}}
-                        sizes="(max-width: 768px)"
-                        onLoadingComplete={({ naturalWidth, naturalHeight }) => {
-                            setDimension({ height: naturalHeight, width: naturalWidth })
-                            setIsLoading(false);
-                        }}
-                        className=" aspect-auto"
-                        priority
-                    />
-                </div>
-                <button
-                    className="absolute left-0 top-1/2 -translate-y-1/2 bg-white p-2"
-                    onClick={(e) => {
-                    e.stopPropagation();
-                    goToPreviousImage();
-                    }}
-                >
-                    <Image src={arrow} alt="arrow right" className="rotate-180" width={20} height={20} />
-                </button>
-                <button
-                    className="absolute right-0 top-1/2 -translate-y-1/2 bg-white p-2"
-                    onClick={(e) => {
-                    e.stopPropagation();
-                    goToNextImage();
-                    }}
-                >
-                    <Image src={arrow} alt="arrow right" width={20} height={20} />
-                </button>
-            </div>
-        )}
+        <ImagePopup popupOpen={popupOpen} setPopupOpen={setPopupOpen} pictures={currentImages} index={selectedImageIndex} />
         <div className="max-w-[1080px] w-full grid grid-cols-1 grid-rows-auto sm:grid-cols-4 sm:grid-rows-3 gap-4 border-b pb-7">
             {currentImages.map((name, index) => (
                 <div key={index} className="relative overflow-hidden" style={{ paddingBottom: '100%' }} onClick={() => openModal(index)}>
