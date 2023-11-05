@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import paku from '../public/paku.jpg'
+import paku from '../public/Paku.jpg'
 
 export default function Home() {
   return (
@@ -259,7 +259,7 @@ export default function Home() {
       </div>*/}
       <div className="w-full bg-blue-100 relative">
         <Image src={paku} alt='E1K Pakettiauto' fill={true} style={{ objectFit: 'cover', }} />
-        <div style={{ background: 'rgba(40,40,40,0.84)' }} className='relative z-10 w-full h-full px-5 sm:px-20 py-48  text-white flex flex-col justify-center items-center py-10 text-center'>
+        <div style={{ background: 'rgba(40,40,40,0.88)' }} className='relative z-10 w-full h-full px-5 sm:px-20 py-48  text-white flex flex-col justify-center items-center py-10 text-center'>
           <h2 className=' font-bold text-4xl md:text-7xl py-2 md:py-6'>E1K Urakointi Oy</h2>
           <h6 className=' text-lg text-gray-300 md:text-2xl'>Luotettavaa ja ammattitaitoista osaamista</h6>
           <Link href='/galleria' className='w-40 px-5 mt-8 py-3 gap-2 bg-bg_brand_solid shadow-md text-black'>Galleriamme</Link>
