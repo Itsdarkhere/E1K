@@ -2,8 +2,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import logo from '../public/logoE1K.png'
-import hamburger from '../public/hamburger.svg'
-import { Menu } from '@headlessui/react'
 import BurgerMenu from './BurgerMenu'
 
 export default function Navigation() {
