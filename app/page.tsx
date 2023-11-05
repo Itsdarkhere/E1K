@@ -1,4 +1,3 @@
-import paku from '../public/Paku.jpg'
 import Link from 'next/link'
 import Image from 'next/image'
 
