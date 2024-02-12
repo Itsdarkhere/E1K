@@ -1,16 +1,26 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import paku from '../public/Paku.jpg'
+import tausta from '../public/E1Ktausta.png'
 
 export default function Home() {
   return (
     <main className="flex flex-col items-center justify-between">
-      <div 
-        style={{ backgroundSize: 'cover', backgroundPosition: '50%', backgroundRepeat: 'no-repeat', backgroundImage: `radial-gradient(circle at top left,rgba(40,40,40,0.79) 0%,rgba(40,40,40,0.86) 100%),url('/E1Ktausta.png')`}} 
-        className="w-full bg-gray-300 px-5 sm:px-20  py-60 md:py-80 relative text-white flex flex-col justify-center items-center text-center">
+      <div className="w-full bg-gray-300 px-5 sm:px-20  py-60 md:py-80 relative text-white flex flex-col justify-center items-center text-center">
         <h1 className=' relative z-10 text-4xl md:text-7xl font-bold py-2 md:py-6'>E1K Urakointi Oy</h1>
         <h4 className=' relative text-gray-300 z-10 text-lg md:text-2xl pb-10 max-w-[850px]'>Urakoitsija uusimaalla rakennusliikkeille, yrityksille ja yksityisille. Urakat valmiiksi tehokkaasti, nopealla aikataululla</h4>
         {/* <h6 className=' relative z-10 text-2xl'>Työllistämme ammattitaitoisia rakennushenkilöitä</h6> */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            fill
+            priority
+            src={tausta}
+            objectFit="cover"
+            objectPosition="50%"
+            alt="Background"
+          />
+        </div>
+        <div className="absolute inset-0 z-1 bg-gradient-to-br from-[rgba(40,40,40,0.79)] to-[rgba(40,40,40,0.86)]"></div>
       </div>
       <section className="w-full py-12 md:py-24 lg:py-32 bg-white flex justify-center items-center">
         <div className="container px-4 md:px-6">
