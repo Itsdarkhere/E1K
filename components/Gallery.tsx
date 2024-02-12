@@ -75,7 +75,7 @@ export default function Gallery() {
         <ImagePopup popupOpen={popupOpen} setPopupOpen={setPopupOpen} pictures={currentImages} index={selectedImageIndex} />
         <div className="max-w-[1080px] w-full grid grid-cols-1 grid-rows-auto sm:grid-cols-4 sm:grid-rows-3 gap-4 border-b pb-7">
             {currentImages.map((name, index) => (
-                <div key={index} className="relative overflow-hidden" style={{ paddingBottom: '100%' }} onClick={() => openModal(index)}>
+                <div key={index} className="relative overflow-hidden cursor-pointer" style={{ paddingBottom: '100%' }} onClick={() => openModal(index)}>
                     <Image
                         src={`/${name}.jpg`}
                         fill={true}
