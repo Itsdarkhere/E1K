@@ -15,8 +15,7 @@ export default function Home() {
             fill
             priority
             src={tausta}
-            objectFit="cover"
-            objectPosition="50%"
+            className=' object-cover object-center'
             alt="Background"
           />
         </div>

@@ -78,12 +78,12 @@ export default function Gallery() {
                 <div key={index} className="relative overflow-hidden" style={{ paddingBottom: '100%' }} onClick={() => openModal(index)}>
                     <Image
                         src={`/${name}.jpg`}
-                        fill={true} style={{ objectFit: 'cover'}}
+                        fill={true}
                         alt={`Gallery image ${name}`}
                         sizes="500px"
                         onLoadingComplete={() => setImageLoading(false)}
                         key={`${name}_${currentPage}`}
-                        className={`transition-opacity duration-500 ${imageLoading ? 'opacity-0' : 'opacity-100'}`} // Tailwind classes for transition and opacity
+                        className={`transition-opacity object-cover duration-500 ${imageLoading ? 'opacity-0' : 'opacity-100'}`} // Tailwind classes for transition and opacity
                     />
                 </div>
             ))}

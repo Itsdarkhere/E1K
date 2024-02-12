@@ -6,7 +6,7 @@ export default function OtaYhteytta() {
     return (
       <main className="flex flex-col items-center justify-between">
         <div className='w-full px-5 sm:px-20 py-60 relative flex flex-col justify-center items-center'>
-            <Image src={tausta} priority alt='Työkaluja' fill objectFit='cover' />
+            <Image src={tausta} priority alt='Työkaluja' fill className=' object-cover' />
             <div className='relative z-10'>
                 <h2 className=' text-white text-4xl md:text-7xl font-bold'>Ota yhteyttä</h2>
             </div>

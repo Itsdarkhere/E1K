@@ -6,8 +6,10 @@ import mail from '../public/mail.svg'
 import phone from '../public/phone.svg'
 import location from '../public/location.svg'
 import luotettava from '../public/LUOTETTAVA.png'
+import success from '../public/success.svg'
 
 export default function Footer() {
+    const [emailSuccess, setEmailSuccess] = useState(false);
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
@@ -27,9 +29,11 @@ export default function Footer() {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(payload),
-        }).then((res) => res.json())
+        });
 
-        console.log(response);
+        if (response.ok) {
+            setEmailSuccess(true);
+        }
     }
 
     const handleInputChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -64,72 +68,81 @@ export default function Footer() {
                     <Image src={luotettava} alt="Luotettava kumppani todistus" />
                 </div>
             </div>
-            <form onSubmit={handleSubmit} className='w-full lg:w-1/2 py-20 px-5 sm:px-20 bg-white'>
-                <h4 className=' text-4xl mb-6 font-semibold text-text_primary'>Ota yhteyttä</h4>
-                <div className="flex flex-row gap-6 w-full py-5 max-w-[600px]">
-                    <div className="flex flex-col w-full gap-[6px]">
-                        <label
-                            htmlFor="name"
-                            className="text-text_secondary text-sm font-medium"
-                        >
-                            Nimi
-                        </label>
-                        <input
-                            type="text"
-                            name="name"
-                            id="name"
-                            required
-                            value={name}
-                            onChange={handleInputChange}
-                            placeholder='Nimi'
-                            autoComplete="name"
-                            className="block w-full px-2 border border-gray-300 py-2.5 text-gray-900 shadow-sm placeholder:text-gray-400 focus:outline-bg_brand_solid sm:text-sm sm:leading-6"
-                        />
+            <div className='w-full lg:w-1/2 py-20 px-5 sm:px-20 bg-white flex flex-col justify-center'>
+                {emailSuccess ? 
+                    <div className='flex flex-row items-center justify-start gap-3'>
+                        <Image height={55} src={success} alt='Onnistunut viesti' />
+                        <h4 className=' text-4xl mb-0 font-semibold text-text_primary'>Viesti lähetetty</h4>
                     </div>
-                    <div className="flex flex-col w-full gap-[6px] text-text_tertiary">
-                        <label
-                            htmlFor="email"
-                            className="text-text_secondary text-sm font-medium"
-                        >
-                            Sähköposti
-                        </label>
-                        <input
-                            type="email"
-                            required
-                            name="email"
-                            id="email"
-                            value={email}
-                            onChange={handleInputChange}
-                            placeholder='Sähköposti'
-                            autoComplete="email"
-                            className="block w-full px-2 border border-gray-300 py-2.5 text-gray-900 shadow-sm placeholder:text-gray-400 focus:outline-bg_brand_solid sm:text-sm sm:leading-6"
-                        />
-                    </div>
-                </div>
-                <div className=" col-span-full  max-w-[600px]">
-                    <label
-                        htmlFor="viesti"
-                        className="text-text_secondary font-medium text-sm"
-                    >
-                        Viesti
-                    </label>
-                    <div className="mt-1">
-                        <textarea
-                        id="viesti"
-                        required
-                        name="viesti"
-                        rows={3}
-                        value={message}
-                        placeholder='Viesti'
-                        onChange={handleInputChange}
-                        className="block w-full px-2 min-h-[150px] border border-gray-300 py-1.5 text-gray-900 shadow-sm placeholder:text-gray-400 focus:outline-bg_brand_solid sm:text-sm sm:leading-6"
-                        />
-                    </div>
-                </div>
-                <button type='submit' className=' bg-bg_brand_solid text-white w-full max-w-[600px] px-5 mt-8 py-3 flex flex-row items-center justify-center border border_border_primary shadow-md'>
-                    LÄHETÄ
-                </button>
-            </form>
+                    :
+                    <form onSubmit={handleSubmit} className=''>
+                        <h4 className=' text-4xl mb-6 font-semibold text-text_primary'>Ota yhteyttä</h4>
+                        <div className="flex flex-row gap-6 w-full py-5 max-w-[600px]">
+                            <div className="flex flex-col w-full gap-[6px]">
+                                <label
+                                    htmlFor="name"
+                                    className="text-text_secondary text-sm font-medium"
+                                >
+                                    Nimi
+                                </label>
+                                <input
+                                    type="text"
+                                    name="name"
+                                    id="name"
+                                    required
+                                    value={name}
+                                    onChange={handleInputChange}
+                                    placeholder='Nimi'
+                                    autoComplete="name"
+                                    className="block w-full px-2 border border-gray-300 py-2.5 text-gray-900 shadow-sm placeholder:text-gray-400 focus:outline-bg_brand_solid sm:text-sm sm:leading-6"
+                                />
+                            </div>
+                            <div className="flex flex-col w-full gap-[6px] text-text_tertiary">
+                                <label
+                                    htmlFor="email"
+                                    className="text-text_secondary text-sm font-medium"
+                                >
+                                    Sähköposti
+                                </label>
+                                <input
+                                    type="email"
+                                    required
+                                    name="email"
+                                    id="email"
+                                    value={email}
+                                    onChange={handleInputChange}
+                                    placeholder='Sähköposti'
+                                    autoComplete="email"
+                                    className="block w-full px-2 border border-gray-300 py-2.5 text-gray-900 shadow-sm placeholder:text-gray-400 focus:outline-bg_brand_solid sm:text-sm sm:leading-6"
+                                />
+                            </div>
+                        </div>
+                        <div className=" col-span-full  max-w-[600px]">
+                            <label
+                                htmlFor="viesti"
+                                className="text-text_secondary font-medium text-sm"
+                            >
+                                Viesti
+                            </label>
+                            <div className="mt-1">
+                                <textarea
+                                id="viesti"
+                                required
+                                name="viesti"
+                                rows={3}
+                                value={message}
+                                placeholder='Viesti'
+                                onChange={handleInputChange}
+                                className="block w-full px-2 min-h-[150px] border border-gray-300 py-1.5 text-gray-900 shadow-sm placeholder:text-gray-400 focus:outline-bg_brand_solid sm:text-sm sm:leading-6"
+                                />
+                            </div>
+                        </div>
+                        <button type='submit' className=' bg-bg_brand_solid text-white w-full max-w-[600px] px-5 mt-8 py-3 flex flex-row items-center justify-center border border_border_primary shadow-md'>
+                            LÄHETÄ
+                        </button>
+                    </form>
+                }
+            </div>
         </div>
     </div>
   )
