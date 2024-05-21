@@ -13,7 +13,9 @@ export default function Home() {
         <div className="absolute inset-0 z-0">
           <Image
             fill
-            priority
+            priority={true}
+            sizes='100vw'
+            quality={80}
             src={tausta}
             className=' object-cover object-center'
             alt="Background"
