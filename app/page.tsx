@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import paku from '../public/Paku.jpg'
-import tausta from '../public/E1Ktausta.png'
+import tausta from '../public/E1Ktausta.webp'
 
 export default function Home() {
   return (
