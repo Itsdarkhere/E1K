@@ -77,7 +77,7 @@ export default function Gallery() {
             {currentImages.map((name, index) => (
                 <div key={index} className="relative overflow-hidden cursor-pointer" style={{ paddingBottom: '100%' }} onClick={() => openModal(index)}>
                     <Image
-                        src={`/${name}.jpg`}
+                        src={`/${name}-min.jpg`}
                         fill={true}
                         alt={`Gallery image ${name}`}
                         sizes="500px"
